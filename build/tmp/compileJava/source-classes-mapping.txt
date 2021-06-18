@@ -1,2 +1,20 @@
+com/mybatis/shoppingmall/catalog/ItemMapper.java
+ com.mybatis.shoppingmall.catalog.ItemMapper
+com/mybatis/shoppingmall/catalog/ProductMapper.java
+ com.mybatis.shoppingmall.catalog.ProductMapper
+com/mybatis/shoppingmall/catalog/CatalogSvc.java
+ com.mybatis.shoppingmall.catalog.CatalogSvc
+com/mybatis/shoppingmall/catalog/CategoryDTO.java
+ com.mybatis.shoppingmall.catalog.CategoryDTO
+com/mybatis/shoppingmall/catalog/ItemDTO.java
+ com.mybatis.shoppingmall.catalog.ItemDTO
 com/mybatis/shoppingmall/ShoppingmallApplication.java
  com.mybatis.shoppingmall.ShoppingmallApplication
+com/mybatis/shoppingmall/catalog/ProductDTO.java
+ com.mybatis.shoppingmall.catalog.ProductDTO
+com/mybatis/shoppingmall/catalog/CategoryMapper.java
+ com.mybatis.shoppingmall.catalog.CategoryMapper
+com/mybatis/shoppingmall/catalog/CatalogSvcImpl.java
+ com.mybatis.shoppingmall.catalog.CatalogSvcImpl
+com/mybatis/shoppingmall/catalog/CatalogCtr.java
+ com.mybatis.shoppingmall.catalog.CatalogCtr
