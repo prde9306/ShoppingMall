@@ -1,13 +1,16 @@
 package com.mybatis.shoppingmall.cart;
 
+import com.mybatis.shoppingmall.catalog.ItemDTO;
+
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.*;
 
 public class CartVO implements Serializable {
 
     private static final long serialVersionUID = 8329559983943337176L;
 
-    //synchronizedMap공부~~
-    //이걸 통해서 카트에 넣고 빼고 가능한듯?
+    //synchronizedMap-동기화 제공
 
     private final Map<String, CartItem> itemMap = Collections
             .synchronizedMap(new HashMap<String, CartItem>());
@@ -34,7 +37,7 @@ public class CartVO implements Serializable {
         return itemMap.containsKey(itemId);
     }
 
-    public void addItem(Item item, boolean isInStock) {
+    public void addItem(ItemDTO item, boolean isInStock) {
         CartItem cartItem = (CartItem) itemMap.get(item.getItemId());
         if (cartItem == null) {
             cartItem = new CartItem();
@@ -47,7 +50,7 @@ public class CartVO implements Serializable {
         cartItem.incrementQuantity();
     }
 
-    public Item removeItemById(String itemId) {
+    public ItemDTO removeItemById(String itemId) {
         CartItem cartItem = (CartItem) itemMap.remove(itemId);
         if (cartItem == null) {
             return null;
@@ -72,7 +75,7 @@ public class CartVO implements Serializable {
         Iterator<CartItem> items = getAllCartItems();
         while (items.hasNext()) {
             CartItem cartItem = (CartItem) items.next();
-            Item item = cartItem.getItem();
+            ItemDTO item = cartItem.getItem();
             BigDecimal listPrice = item.getListPrice();
             BigDecimal quantity = new BigDecimal(String.valueOf(cartItem
                     .getQuantity()));

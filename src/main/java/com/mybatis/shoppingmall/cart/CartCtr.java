@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("cart")
-public class CartController {
+public class CartCtr {
 
     protected CartHelper cartHelper;
     //필요 없을거 같은데? CartHelper랑 연결되서 그런가?
@@ -40,7 +40,7 @@ public class CartController {
     }
 
     @RequestMapping("updateCartQuantities")
-    public String updateCartQuantities(CartForm cartForm, Model model) {
+    public String updateCartQuantities(CartFormDTO cartForm, Model model) {
         cartHelper.updateCartQuantities(cartForm, cart);
         return "redirect:/cart/viewCart";
     }

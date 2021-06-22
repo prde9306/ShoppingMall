@@ -1,8 +1,11 @@
 package com.mybatis.shoppingmall.cart;
 
 import com.mybatis.shoppingmall.catalog.CatalogSvc;
+import com.mybatis.shoppingmall.catalog.ItemDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.Iterator;
 
 @RequiredArgsConstructor
 @Component
@@ -16,13 +19,13 @@ public class CartHelper {
             // isInStock is a "real-time" property that must be updated
             // every time an item is added to the cart, even if other
             // item details are cached.
-            boolean isInStock = catalogService.isItemInStock(workingItemId);
-            Item item = catalogService.getItem(workingItemId);
+            boolean isInStock = catalogSvc.isItemInStock(workingItemId);
+            ItemDTO item = catalogSvc.getItem(workingItemId);
             cart.addItem(item, isInStock);
         }
     }
 
-    public void updateCartQuantities(CartForm cartForm, Cart cart) {
+    public void updateCartQuantities(CartFormDTO cartForm, CartVO cart) {
         Iterator<CartItem> cartItems = cart.getAllCartItems();
         while (cartItems.hasNext()) {
             CartItem cartItem = (CartItem) cartItems.next();
@@ -39,8 +42,8 @@ public class CartHelper {
         }
     }
 
-    public void removeItemFromCart(String cartItem, Cart cart) {
+    public void removeItemFromCart(String cartItem, CartVO cart) {
         cart.removeItemById(cartItem);
     }
 }
-}
+
