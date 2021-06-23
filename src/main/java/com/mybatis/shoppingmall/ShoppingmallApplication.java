@@ -1,5 +1,7 @@
 package com.mybatis.shoppingmall;
 
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -30,6 +32,11 @@ public class ShoppingmallApplication {
         registrationBean.setFilter(new CorsFilter(source));
         registrationBean.setOrder(0);
         return registrationBean;
+    }
+    //dozer
+    @Bean
+    public Mapper mapper() {
+        return new DozerBeanMapper();
     }
 
 }
