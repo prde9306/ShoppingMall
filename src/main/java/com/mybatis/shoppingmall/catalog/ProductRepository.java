@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface ProductMapper {
+public interface ProductRepository {
 
     List<ProductDTO> getProductListByCategory(String categoryId);
     ProductDTO getProduct(String productId);

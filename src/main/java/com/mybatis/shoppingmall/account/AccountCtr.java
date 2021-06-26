@@ -1,9 +1,9 @@
 package com.mybatis.shoppingmall.account;
 
 import com.mybatis.shoppingmall.user.UserDetails;
+import lombok.RequiredArgsConstructor;
 import org.dozer.Mapper;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -17,19 +17,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/account")
 public class AccountCtr {
 
-    private static final List<String> LANGUAGE_LIST;
-
-    private static final List<String> CATEGORY_LIST;
-    //이거 어떻게 사용하는지 방법 확 https://howtodoinjava.com/automation/dozer-bean-mapping-examples/
+    //이거 어떻게 사용하는지 방법 확인
     protected Mapper beanMapper;
 
     protected AccountHelper accountHelper;
 
     protected PasswordEqualsValidator passwordEqualsValidator;
+
+    private static final List<String> LANGUAGE_LIST;
+
+    private static final List<String> CATEGORY_LIST;
 
     static {
         List<String> langList = new ArrayList<String>();
@@ -93,6 +95,7 @@ public class AccountCtr {
                 .getContext().getAuthentication().getPrincipal();
         Account account = userDetails.getAccount();
         beanMapper.map(account, form);
+        //????왜??
         form.setPassword("");
         return "account/EditAccountForm";
     }
