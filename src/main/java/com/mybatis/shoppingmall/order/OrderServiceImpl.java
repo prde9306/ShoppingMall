@@ -2,7 +2,6 @@ package com.mybatis.shoppingmall.order;
 
 import com.mybatis.shoppingmall.catalog.ItemDTO;
 import com.mybatis.shoppingmall.catalog.ItemRepository;
-import com.mybatis.shoppingmall.catalog.LineItemRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
