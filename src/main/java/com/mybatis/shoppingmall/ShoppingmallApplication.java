@@ -2,6 +2,7 @@ package com.mybatis.shoppingmall;
 
 import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;

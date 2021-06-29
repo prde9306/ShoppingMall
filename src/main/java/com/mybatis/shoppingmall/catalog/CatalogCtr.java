@@ -1,5 +1,7 @@
 package com.mybatis.shoppingmall.catalog;
 
+import com.mybatis.shoppingmall.common.CommonResult;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,20 +20,20 @@ public class CatalogCtr {
 
     protected final CatalogSvc catalogSvc;
 
-    @RequestMapping
+    @GetMapping
     public String main() {
         return "catalog/Main";
     }
 
-    @RequestMapping("viewCategory")
-    public String viewCategory(@RequestParam("categoryId") String categoryId,
-                               Model model) {
+    @GetMapping("viewCategory")
+    public CommonResult <CategoryDTO> viewCategory(@RequestParam("categoryId") String categoryId) {
+        //Fish밑에 목록
         List<ProductDTO> productList = catalogSvc
                 .getProductListByCategory(categoryId);
-        CategoryDTO category = catalogSvc.getCategory(categoryId);
-        model.addAttribute("productList", productList);
-        model.addAttribute("category", category);
-        return "catalog/Category";
+        //Fish
+       CategoryDTO category = catalogSvc.getCategory(categoryId);
+
+        return CommonResult.success(category);
     }
 
     @RequestMapping("viewProduct")

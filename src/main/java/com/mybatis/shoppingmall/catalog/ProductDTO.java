@@ -1,9 +1,7 @@
 package com.mybatis.shoppingmall.catalog;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -13,6 +11,7 @@ import java.io.Serializable;
 @Setter
 public class ProductDTO implements Serializable {
 
+    private static final long serialVersionUID = -7492639752670189553L;
     @Setter(AccessLevel.NONE)
     private String productId;
     private String categoryId;

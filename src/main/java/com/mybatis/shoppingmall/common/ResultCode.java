@@ -8,21 +8,18 @@ public enum ResultCode implements IErrorCode {
     FORBIDDEN(403, "관련 권한 없음");
 
     private long code;
+    private String message;
+
 
     private ResultCode(long code, String message) {
         this.code = code;
         this.message = message;
     }
 
-    private String message;
-
-
-    @Override
     public long getCode() {
         return code;
     }
 
-    @Override
     public String getMessage() {
         return message;
     }

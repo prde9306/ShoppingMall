@@ -5,6 +5,7 @@ import com.mybatis.shoppingmall.catalog.ProductDTO;
 import com.mybatis.shoppingmall.user.UserDetails;
 import lombok.RequiredArgsConstructor;
 import org.dozer.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 

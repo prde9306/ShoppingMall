@@ -1,9 +1,11 @@
 package com.mybatis.shoppingmall.account;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
+@Service
 public class AccountSvcImpl implements AccountSvc {
 
     private AccountRepository accountRepository;
