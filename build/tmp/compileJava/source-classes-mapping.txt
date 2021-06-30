@@ -22,8 +22,8 @@ com/mybatis/shoppingmall/common/IErrorCode.java
  com.mybatis.shoppingmall.common.IErrorCode
 com/mybatis/shoppingmall/catalog/CategoryDTO.java
  com.mybatis.shoppingmall.catalog.CategoryDTO
-com/mybatis/shoppingmall/account/AccountCtr.java
- com.mybatis.shoppingmall.account.AccountCtr
+com/mybatis/shoppingmall/catalog/CategoryRepository.java
+ com.mybatis.shoppingmall.catalog.CategoryRepository
 com/mybatis/shoppingmall/catalog/ProductDTO.java
  com.mybatis.shoppingmall.catalog.ProductDTO
 com/mybatis/shoppingmall/cart/CartHelper.java
@@ -74,7 +74,7 @@ com/mybatis/shoppingmall/catalog/CatalogSvcImpl.java
  com.mybatis.shoppingmall.catalog.CatalogSvcImpl
 com/mybatis/shoppingmall/order/OrderRepository.java
  com.mybatis.shoppingmall.order.OrderRepository
-com/mybatis/shoppingmall/catalog/CategoryRepository.java
- com.mybatis.shoppingmall.catalog.CategoryRepository
+com/mybatis/shoppingmall/account/AccountCtr.java
+ com.mybatis.shoppingmall.account.AccountCtr
 com/mybatis/shoppingmall/catalog/CatalogCtr.java
  com.mybatis.shoppingmall.catalog.CatalogCtr

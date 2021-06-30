@@ -26,16 +26,17 @@ public class CatalogCtr {
     }
 
     @GetMapping("viewCategory")
-    public CommonResult <CategoryDTO> viewCategory(@RequestParam("categoryId") String categoryId) {
+    public CommonResult <List<ProductDTO>> viewCategory(@RequestParam("categoryId") String categoryId) {
         //Fish밑에 목록
         List<ProductDTO> productList = catalogSvc
                 .getProductListByCategory(categoryId);
-        //Fish
-       CategoryDTO category = catalogSvc.getCategory(categoryId);
+        //Fish제목
+       //CategoryDTO category = catalogSvc.getCategory(categoryId);
 
-        return CommonResult.success(category);
+        return CommonResult.success(productList);
     }
-
+    //Fish항목 밑에 여러 fish종류(여기 add to cart)
+    //두개 쿼리 뱉는 법 없으면 쿼리 조인하던가, 테이블 다시 설정해야 함... JPA는 어떻게 작동하지?
     @RequestMapping("viewProduct")
     public String viewProduct(@RequestParam("productId") String productId,
                               Model model) {
@@ -45,7 +46,7 @@ public class CatalogCtr {
         model.addAttribute("product", product);
         return "catalog/Product";
     }
-
+    //각 fish별 상세 내용
     @RequestMapping("viewItem")
     public String viewItem(@RequestParam("itemId") String itemId, Model model) {
         ItemDTO item = catalogSvc.getItem(itemId);

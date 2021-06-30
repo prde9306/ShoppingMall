@@ -91,13 +91,13 @@ public class AccountCtr {
     }
 
     @RequestMapping("editAccountForm")
-    public String editAccountForm(AccountForm form) {
+    public String editAccountForm(AccountForm accountForm) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder
                 .getContext().getAuthentication().getPrincipal();
         Account account = userDetails.getAccount();
-        beanMapper.map(account, form);
+        beanMapper.map(account, accountForm);
         //????왜??
-        form.setPassword("");
+        accountForm.setPassword("");
         return "account/EditAccountForm";
     }
 

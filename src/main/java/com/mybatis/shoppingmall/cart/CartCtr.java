@@ -1,12 +1,10 @@
 package com.mybatis.shoppingmall.cart;
 
+import com.mybatis.shoppingmall.common.CommonResult;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -32,12 +30,23 @@ public class CartCtr {
     public String viewCart() {
         return "cart/Cart";
     }
-
-    @RequestMapping("addItemToCart")
-    public String addItemToCart(
+//
+//    @RequestMapping("addItemToCart")
+//    public String addItemToCart(
+//            @RequestParam("workingItemId") String workingItemId) {
+//        cartHelper.addItemToCart(workingItemId, cart);
+//        return "redirect:/cart/viewCart";
+//    }
+    @GetMapping("addItemToCart")
+    public CommonResult addItemToCart(
             @RequestParam("workingItemId") String workingItemId) {
-        cartHelper.addItemToCart(workingItemId, cart);
-        return "redirect:/cart/viewCart";
+        //이건 svc거치기 전에 한 단계 더 둬서.. 따라서 Boolen이나 Int로 받을 수가 없는데.. 결과 처리를 어떻게 여기서 해주지?...
+        boolean success = cartHelper.addItemToCart(workingItemId, cart);
+        if(success){
+            return CommonResult.success(null);
+        } else{
+            return CommonResult.failed();
+        }
     }
 
     @RequestMapping("updateCartQuantities")
